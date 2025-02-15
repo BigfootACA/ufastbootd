@@ -21,3 +21,5 @@ target_link_libraries(ufastbootd PRIVATE
 	pthread
 	blkid
 )
+
+install(TARGETS ufastbootd DESTINATION bin)

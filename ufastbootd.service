@@ -1,0 +1,14 @@
+[Unit]
+Description=Userspace Fastboot Daemon
+RequiresMountsFor=/dev/usb-ffs/fastboot
+Before=gadget-start.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ufastbootd -p /dev/usb-ffs/fastboot
+Restart=always
+
+[Install]
+Also=dev-usb\\x2dffs-fastboot.mount
+RequiredBy=gadget-start.service
+WantedBy=usb-gadget.target

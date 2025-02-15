@@ -1,0 +1,16 @@
+[Unit]
+Description=Userspace Fastboot Daemon FunctionFS
+PartOf=ufastbootd.service
+Before=ufastbootd.service
+After=modprobe@fs-functionfs.service usbgadget-func-functionfs@fastboot.service
+Wants=modprobe@fs-functionfs.service usbgadget-func-functionfs@fastboot.service
+
+[Mount]
+What=fastboot
+Where=/dev/usb-ffs/fastboot
+Type=functionfs
+
+[Install]
+WantedBy=usb-gadget.target
+Also=usbgadget-func-functionfs@fastboot.service
+Also=ufastbootd.service

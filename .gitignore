@@ -61,4 +61,5 @@ fonts.scale
 __pycache__
 /include/config.h
 /local
-
+/src
+/pkg
